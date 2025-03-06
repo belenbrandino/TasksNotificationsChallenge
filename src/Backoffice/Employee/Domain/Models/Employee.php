@@ -15,7 +15,7 @@ use Lightit\Backoffice\Task\Domain\Models\Task;
  * @property string                          $email
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Lightit\Shared\App\Task> $tasks
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Lightit\Backoffice\Task\Domain\Models\Task> $tasks
  * @property-read int|null $tasks_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee newModelQuery()
@@ -36,8 +36,11 @@ class Employee extends Model
 {
     use Notifiable;
 
-    protected $fillable = ['name', 'email'];
+    protected $guarded = ['id'];
 
+    /**
+     * @return HasMany<Task, $this>
+    */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);

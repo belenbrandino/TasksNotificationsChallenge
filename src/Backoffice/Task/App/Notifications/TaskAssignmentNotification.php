@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Employee\App\Notifications;
+namespace Lightit\Backoffice\Task\App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -36,7 +36,7 @@ abstract class TaskAssignmentNotification extends Notification implements Should
             ->subject($this->getSubject())
             ->view('mail.assigned-task', [
                 'task'    => $this->task,
-                'message' => $this->getBody(),
+                'bodyMessage' => $this->getBody(),
             ]);
     }
 }

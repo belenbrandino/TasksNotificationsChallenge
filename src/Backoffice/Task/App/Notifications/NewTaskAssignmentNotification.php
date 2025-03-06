@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Employee\App\Notifications;
+namespace Lightit\Backoffice\Task\App\Notifications;
 
 class NewTaskAssignmentNotification extends TaskAssignmentNotification
 {

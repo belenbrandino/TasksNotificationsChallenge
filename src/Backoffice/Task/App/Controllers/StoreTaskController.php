@@ -7,11 +7,11 @@ namespace Lightit\Backoffice\Task\App\Controllers;
 use Illuminate\Http\JsonResponse;
 use Lightit\Backoffice\Task\App\Request\UpsertTaskRequest;
 use Lightit\Backoffice\Task\App\Transformers\TaskTransformer;
-use Lightit\Backoffice\Task\Domain\Actions\UpsertTaskAction;
+use Lightit\Backoffice\Task\Domain\Actions\StoreTaskAction;
 
-class UpsertTaskController
+class StoreTaskController
 {
-    public function __invoke(UpsertTaskRequest $request, UpsertTaskAction $action): JsonResponse
+    public function __invoke(UpsertTaskRequest $request, StoreTaskAction $action): JsonResponse
     {
         $task = $action->execute($request->toDto());
 

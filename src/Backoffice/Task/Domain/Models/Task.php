@@ -16,7 +16,7 @@ use Lightit\Backoffice\Employee\Domain\Models\Employee;
  * @property int                             $employee_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Lightit\Shared\App\Employee $employee
+ * @property-read \Lightit\Backoffice\Employee\Domain\Models\Employee $employee
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newQuery()
@@ -33,8 +33,11 @@ use Lightit\Backoffice\Employee\Domain\Models\Employee;
  */
 class Task extends Model
 {
-    protected $fillable = ['title', 'description', 'status', 'employee_id'];
+    protected $guarded = ['id'];
 
+    /**
+     * @return BelongsTo<Employee, $this>
+     */
     public function employee(): BelongsTo
     {
         return $this->belongsTo(Employee::class);

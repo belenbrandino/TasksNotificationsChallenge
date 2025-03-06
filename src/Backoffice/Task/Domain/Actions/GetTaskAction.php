@@ -8,9 +8,6 @@ use Lightit\Backoffice\Task\Domain\Models\Task;
 
 class GetTaskAction
 {
-    /**
-     * @param mixed $task
-     */
     public function execute(Task $task): Task
     {
         return $task;

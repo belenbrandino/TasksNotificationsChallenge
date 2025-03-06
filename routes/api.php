@@ -6,6 +6,8 @@ use Lightit\Backoffice\Employee\App\Controllers\ListEmployeeController;
 use Lightit\Backoffice\Employee\App\Controllers\StoreEmployeeController;
 use Lightit\Backoffice\Task\App\Controllers\GetTaskController;
 use Lightit\Backoffice\Task\App\Controllers\ListTaskController;
+use Lightit\Backoffice\Task\App\Controllers\StoreTaskController;
+use Lightit\Backoffice\Task\App\Controllers\UpdateTaskController;
 use Lightit\Backoffice\Task\App\Controllers\UpsertTaskController;
 use Lightit\Backoffice\Users\App\Controllers\{
     DeleteUserController, GetUserController, ListUserController, StoreUserController
@@ -60,6 +62,11 @@ Route::prefix('employees')
 Route::prefix('tasks')
 ->group(static function () {
     Route::get('/', ListTaskController::class);
-    Route::get('/{task}', GetTaskController::class)->withTrashed();
-    Route::post('/', UpsertTaskController::class);
+    Route::post('/', StoreTaskController::class);
+    Route::prefix('/{task}')
+    ->group(static function () {
+        Route::get('/', GetTaskController::class);
+        Route::put('/', UpdateTaskController::class);
+
+    });
 });

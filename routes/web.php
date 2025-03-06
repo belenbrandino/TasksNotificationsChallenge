@@ -5,6 +5,12 @@ use GuzzleHttp\Cookie\CookieJar;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Lightit\Shared\App\Exceptions\InvalidActionException;
+use Lightit\Backoffice\Employee\App\Controllers\StoreEmployeeController;
+use Lightit\Backoffice\Employee\App\Controllers\ListEmployeeController;
+use Lightit\Backoffice\Task\App\Controllers\GetTaskController;
+use Lightit\Backoffice\Task\App\Controllers\ListTaskController;
+use Lightit\Backoffice\Task\App\Controllers\UpsertTaskController;
+
 
 Route::get('invalid', static fn() => throw new InvalidActionException("Is not valid"));
 

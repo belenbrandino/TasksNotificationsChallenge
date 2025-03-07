@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Lightit\Backoffice\Task\App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Lightit\Backoffice\Task\Domain\Models\Task;
 
-abstract class TaskAssignmentNotification extends Notification implements ShouldQueue
+abstract class TaskAssignmentNotification extends Notification
 {
     use Queueable;
 

@@ -13,6 +13,6 @@ class ReassignTaskAssignmentNotification extends TaskAssignmentNotification
 
     protected function getBody(): string
     {
-        return "You have been reassigned a task with title: {$this->task->title} and id: {$this->task->id}.";
+        return "You have been reassigned a task with title: {$this->task->title}.";
     }
 }

@@ -20,7 +20,7 @@ class StoreEmployeeRequest extends FormRequest
     {
         return [
             self::NAME => ['required', 'string', 'max:255'],
-            self::EMAIL => ['required', 'email', 'unique:employees'],
+            self::EMAIL => ['required', 'email:strict', 'unique:employees'],
         ];
     }
 
